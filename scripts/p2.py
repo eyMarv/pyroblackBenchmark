@@ -1,7 +1,19 @@
+import logging
 import os
 from datetime import datetime
 from pyrogram import Client, __version__
 from pyrogram.types import ReplyParameters
+
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(asctime)s - %(levelname)s] - %(name)s - %(message)s",
+    datefmt="%d-%b-%y %H:%M:%S",
+    handlers=[
+        logging.StreamHandler()
+    ]
+)
+
 
 TG_API_ID = int(os.environ.get("TG_API_ID", "6"))
 TG_API_HASH = os.environ.get("TG_API_HASH", "")

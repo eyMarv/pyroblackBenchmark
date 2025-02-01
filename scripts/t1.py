@@ -1,14 +1,27 @@
+import logging
 import os
 from datetime import datetime
 from telethon import __version__
 from telethon.sessions import MemorySession
 from telethon.sync import TelegramClient
 
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(asctime)s - %(levelname)s] - %(name)s - %(message)s",
+    datefmt="%d-%b-%y %H:%M:%S",
+    handlers=[
+        logging.StreamHandler()
+    ]
+)
+
+
 TG_API_ID = int(os.environ.get("TG_API_ID", "6"))
 TG_API_HASH = os.environ.get("TG_API_HASH", "")
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN")
 TG_FLOOD_SLEEP_THRESHOLD = int(os.environ.get("TG_FLOOD_SLEEP_THRESHOLD", "10"))
 TG_MESSAGE_LINK = os.environ.get("TG_MESSAGE_LINK", "")
+
 
 app = TelegramClient(
     session=MemorySession(),
