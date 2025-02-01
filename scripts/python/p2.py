@@ -39,8 +39,10 @@ d["version"] = __version__
 d["layer"] = layer
 app.start()
 
+_, _, _, chat_id, s_message_id = TG_MESSAGE_LINK.split("/")
+
 t1 = datetime.now()
-message = app.get_messages(link=TG_MESSAGE_LINK)
+message = app.get_messages(chat_id=chat_id, message_ids=int(s_message_id))
 d["file_size"] = message.document.file_size
 t2 = datetime.now()
 filename = message.download()

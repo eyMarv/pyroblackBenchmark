@@ -1,0 +1,41 @@
+name: Kurigram (t.me/tgLibs) Benchmark Testing Tool
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository contents
+        uses: actions/checkout@v4
+
+      - name: Setup Python Version
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run script
+        env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+          TG_FLOOD_SLEEP_THRESHOLD: ${{ secrets.TG_FLOOD_SLEEP_THRESHOLD }}
+          TG_MESSAGE_LINK: ${{ secrets.TG_MESSAGE_LINK }}
+        run: |
+          echo "Beginning Pyrogram test"
+          mkdir -p outputs
+          pip install --force-reinstall https://github.com/KurimuzonAkuma/pyrogram/archive/857ec0d.zip TgCrypto==1.2.5 > /dev/null 2>&1
+          P=$(python scripts/python/p2.py)
+          pip uninstall -y kurigram tgcrypto > /dev/null 2>&1
+          echo "${P}" >> outputs/kurigram.json
+
+      - name: Commit and push changes
+        run: |
+          git config user.email "durov2005@gmail.com"
+          git config user.name "GitHub Action <Pavel Durov>"
+          git add outputs/ -A
+          git commit -m "update"
+          git push origin master
