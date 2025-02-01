@@ -24,3 +24,11 @@ jobs:
           TG_FLOOD_SLEEP_THRESHOLD: ${{ secrets.TG_FLOOD_SLEEP_THRESHOLD }}
           TG_MESSAGE_LINK: ${{ secrets.TG_MESSAGE_LINK }}
         run: bash run.sh
+
+      - name: Commit and push changes
+        run: |
+          git config user.email "durov2005@gmail.com"
+          git config user.name "GitHub Action <Pavel Durov>"
+          git add outputs/ -A
+          git commit -m "update"
+          git push origin master

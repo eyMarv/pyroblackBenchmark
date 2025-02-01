@@ -1,7 +1,9 @@
 import logging
 import os
 from datetime import datetime
+from json import dumps
 from pyrogram import Client, __version__
+from pyrogram.raw.all import layer
 from pyrogram.types import ReplyParameters
 
 
@@ -21,6 +23,9 @@ TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN")
 TG_FLOOD_SLEEP_THRESHOLD = int(os.environ.get("TG_FLOOD_SLEEP_THRESHOLD", "10"))
 TG_MESSAGE_LINK = os.environ.get("TG_MESSAGE_LINK", "")
 
+
+d = {}
+
 app = Client(
     name="my_account",
     in_memory=True,
@@ -30,15 +35,21 @@ app = Client(
     no_updates=True,
     bot_token=TG_BOT_TOKEN
 )
-print(f"Pyrogram: {__version__}")
+d["version"] = __version__
+d["layer"] = layer
 app.start()
 
 t1 = datetime.now()
 message = app.get_messages(link=TG_MESSAGE_LINK)
+d["file_size"] = message.document.file_size
 t2 = datetime.now()
 filename = message.download()
 t3 = datetime.now()
-print(f"Downloaded in {(t3 - t2).seconds} seconds")
+d["download"] = {
+    "start_time": t2.timestamp(),
+    "end_time": t3.timestamp(),
+    "time_taken": (t3 - t2).seconds
+}
 t4 = datetime.now()
 app.send_document(
     chat_id=message.chat.id,
@@ -49,7 +60,13 @@ app.send_document(
     )
 )
 t5 = datetime.now()
-print(f"Uploaded in {(t5 - t4).seconds} seconds")
+d["upload"] = {
+    "start_time": t4.timestamp(),
+    "end_time": t5.timestamp(),
+    "time_taken": (t5 - t4).seconds
+}
 os.remove(filename)
 
 app.stop()
+
+print(dumps(d, indent=2))
