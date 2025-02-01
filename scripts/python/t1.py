@@ -57,6 +57,7 @@ app.send_file(
     entity=chat_id,
     file=filename,
     caption="Telethon",
+    force_document=True,
     reply_to=message
 )
 t5 = datetime.now()

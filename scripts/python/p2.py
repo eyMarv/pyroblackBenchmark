@@ -4,7 +4,6 @@ from datetime import datetime
 from json import dumps
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
-from pyrogram.types import ReplyParameters
 
 
 logging.basicConfig(
@@ -57,9 +56,7 @@ app.send_document(
     chat_id=message.chat.id,
     document=filename,
     caption="Pyrogram",
-    reply_parameters=ReplyParameters(
-        message_id=message.id
-    )
+    reply_to_message_id=message.id
 )
 t5 = datetime.now()
 d["upload"] = {
