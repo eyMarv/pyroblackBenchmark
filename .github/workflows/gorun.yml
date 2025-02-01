@@ -1,0 +1,39 @@
+name: File Benchmark - Gogram
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+  schedule:
+        - cron: '0 */3 * * *'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.23'
+
+    - name: Run File Operations
+      env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_MESSAGE_LINK: ${{ secrets.TG_MESSAGE_LINK }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+      run: go mod tidy && go run .
+
+    - name: Commit and push changes
+      run: |
+          git config user.email "durov2005@gmail.com"
+          git config user.name "GitHub Action <Pavel Durov>"
+          git add outputs/ -A
+          git commit -m "update"
+          git push origin master
