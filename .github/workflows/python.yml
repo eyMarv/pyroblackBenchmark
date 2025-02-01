@@ -1,4 +1,4 @@
-name: Telegram Benchmark Testing Tool
+name: Telethon Benchmark Testing Tool
 
 on:
   workflow_dispatch: {}
