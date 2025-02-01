@@ -27,7 +27,8 @@ app = TelegramClient(
     session=MemorySession(),
     api_id=TG_API_ID,
     api_hash=TG_API_HASH,
-    flood_sleep_threshold=TG_FLOOD_SLEEP_THRESHOLD
+    flood_sleep_threshold=TG_FLOOD_SLEEP_THRESHOLD,
+    receive_updates=False
 )
 print(f"Telethon: {__version__}")
 app.connect()

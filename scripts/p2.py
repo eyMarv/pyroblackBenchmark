@@ -27,6 +27,7 @@ app = Client(
     api_id=TG_API_ID,
     api_hash=TG_API_HASH,
     sleep_threshold=TG_FLOOD_SLEEP_THRESHOLD,
+    no_updates=True,
     bot_token=TG_BOT_TOKEN
 )
 print(f"Pyrogram: {__version__}")
