@@ -1,4 +1,4 @@
-name: Telegram (t.me/tgLibs) Benchmark Testing Tool
+name: TeleThon (t.me/tgLibs) Benchmark Testing Tool
 
 on:
   workflow_dispatch: {}
@@ -16,11 +16,6 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: "1.23"
-
       - name: Run script
         env:
           TG_API_ID: ${{ secrets.TG_API_ID }}
@@ -29,7 +24,13 @@ jobs:
           TG_SESSION: ${{ secrets.TG_SESSION }}
           TG_FLOOD_SLEEP_THRESHOLD: ${{ secrets.TG_FLOOD_SLEEP_THRESHOLD }}
           TG_MESSAGE_LINK: ${{ secrets.TG_MESSAGE_LINK }}
-        run: bash run.sh
+        run: |
+          echo "Beginning Telethon test"
+          mkdir -p outputs
+          pip install --force-reinstall https://github.com/lonamiwebs/telethon/archive/a2926b5.zip cryptg==0.5.0.post0 > /dev/null 2>&1
+          T=$(python scripts/python/t1.py)
+          pip uninstall -y telethon cryptg > /dev/null 2>&1
+          echo "${T}" >> outputs/telethon.json
 
       - name: Commit and push changes
         run: |
