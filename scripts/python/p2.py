@@ -25,7 +25,7 @@ TG_MESSAGE_LINK = os.environ.get("TG_MESSAGE_LINK", "")
 
 d = {}
 
-app = Client(
+async with Client(
     name="my_account",
     in_memory=True,
     api_id=TG_API_ID,
@@ -33,39 +33,36 @@ app = Client(
     sleep_threshold=TG_FLOOD_SLEEP_THRESHOLD,
     no_updates=True,
     bot_token=TG_BOT_TOKEN
-)
-d["version"] = __version__
-d["layer"] = layer
-app.start()
+) as app:
+    d["version"] = __version__
+    d["layer"] = layer
 
-_, _, _, chat_id, s_message_id = TG_MESSAGE_LINK.split("/")
+    _, _, _, chat_id, s_message_id = TG_MESSAGE_LINK.split("/")
 
-t1 = datetime.now()
-message = app.get_messages(chat_id=chat_id, message_ids=int(s_message_id))
-d["file_size"] = message.document.file_size
-t2 = datetime.now()
-filename = message.download()
-t3 = datetime.now()
-d["download"] = {
-    "start_time": t2.timestamp(),
-    "end_time": t3.timestamp(),
-    "time_taken": (t3 - t2).seconds
-}
-t4 = datetime.now()
-app.send_document(
-    chat_id=message.chat.id,
-    document=filename,
-    caption="Pyrogram",
-    reply_to_message_id=message.id
-)
-t5 = datetime.now()
-d["upload"] = {
-    "start_time": t4.timestamp(),
-    "end_time": t5.timestamp(),
-    "time_taken": (t5 - t4).seconds
-}
-os.remove(filename)
-
-app.stop()
+    t1 = datetime.now()
+    message = await app.get_messages(chat_id=chat_id, message_ids=int(s_message_id))
+    d["file_size"] = message.document.file_size
+    t2 = datetime.now()
+    filename = await message.download()
+    t3 = datetime.now()
+    d["download"] = {
+        "start_time": t2.timestamp(),
+        "end_time": t3.timestamp(),
+        "time_taken": (t3 - t2).seconds
+    }
+    t4 = datetime.now()
+    await app.send_document(
+        chat_id=message.chat.id,
+        document=filename,
+        caption="Pyrogram",
+        reply_to_message_id=message.id
+    )
+    t5 = datetime.now()
+    d["upload"] = {
+        "start_time": t4.timestamp(),
+        "end_time": t5.timestamp(),
+        "time_taken": (t5 - t4).seconds
+    }
+    os.remove(filename)
 
 print(dumps(d, indent=2))
