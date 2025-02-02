@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1.dev",
+  "layer": 192,
+  "file_size": 2097152000,
+  "download": {
+    "start_time": 1738471055.497999,
+    "end_time": 1738471368.524988,
+    "time_taken": 313
+  },
+  "upload": {
+    "start_time": 1738471368.524995,
+    "end_time": 1738472031.413033,
+    "time_taken": 662
+  }
+}
