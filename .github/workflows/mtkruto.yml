@@ -1,0 +1,42 @@
+name: MTKruto (t.me/tgLibs) Benchmark Testing Tool
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository contents
+        uses: actions/checkout@v4
+
+      - name: Set up Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.1.9
+
+      - name: Run script
+        env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+          TG_FLOOD_SLEEP_THRESHOLD: ${{ secrets.TG_FLOOD_SLEEP_THRESHOLD }}
+          TG_MESSAGE_LINK: ${{ secrets.TG_MESSAGE_LINK }}
+        run: |
+          echo "Beginning MTKruto test"
+          mkdir -p outputs
+          cd scripts/javascript/
+          MK=$(deno -A m4.ts)
+          cd ../../
+          # TODO:
+          echo "${MK}" >> outputs/mtkruto.json
+
+      - name: Commit and push changes
+        run: |
+          git config user.email "rojvv@users.noreply.github.com"
+          git config user.name "GitHub Action <MTKruto>"
+          git add outputs/ -A
+          git commit -m "update"
+          git push origin master
