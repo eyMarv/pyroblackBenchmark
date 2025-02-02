@@ -13,3 +13,18 @@
     "time_taken": 126
   }
 }
+{
+  "version": "2.2.5-TL-198",
+  "layer": 198,
+  "file_size": 2097152000,
+  "download": {
+    "start_time": 1738478762.217534,
+    "end_time": 1738479105.30943,
+    "time_taken": 343
+  },
+  "upload": {
+    "start_time": 1738479105.309437,
+    "end_time": 1738479248.084557,
+    "time_taken": 142
+  }
+}
