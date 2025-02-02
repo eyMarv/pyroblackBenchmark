@@ -13,3 +13,18 @@
     "time_taken": 571
   }
 }
+{
+  "version": "2.1.37",
+  "layer": 196,
+  "file_size": 2097152000,
+  "download": {
+    "start_time": 1738479438.457831,
+    "end_time": 1738479765.84538,
+    "time_taken": 327
+  },
+  "upload": {
+    "start_time": 1738479765.845388,
+    "end_time": 1738480072.49364,
+    "time_taken": 306
+  }
+}
