@@ -34,8 +34,10 @@ jobs:
 
       - name: Commit and push changes
         run: |
+          git config pull.rebase true
           git config user.email "41898282@users.noreply.github.com"
           git config user.name "GitHub Actions <Telethon>"
           git add outputs/ -A
-          git commit -m "update"
+          git commit -m "update Telethon bench"
+          git pull origin master
           git push origin master
