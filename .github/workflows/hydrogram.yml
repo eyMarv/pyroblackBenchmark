@@ -28,7 +28,7 @@ jobs:
           echo "Beginning Pyrogram test"
           mkdir -p outputs
           pip install --force-reinstall https://github.com/hydrogram/hydrogram/archive/d546da5.zip TgCrypto==1.2.5 > /dev/null 2>&1
-          sed -i /pyrogram/hydrogram/ scripts/python/p2.py
+          sed -i s/pyrogram/hydrogram/g scripts/python/p2.py
           P=$(python scripts/python/p2.py)
           pip uninstall -y hydrogram tgcrypto > /dev/null 2>&1
           echo "${P}" >> outputs/hydrogram.json
