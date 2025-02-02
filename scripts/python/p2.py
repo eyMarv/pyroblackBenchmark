@@ -30,6 +30,7 @@ async def main():
     async with Client(
         name="my_account",
         session_string=TG_SESSION,
+        in_memory=True,
         api_id=TG_API_ID,
         api_hash=TG_API_HASH,
         sleep_threshold=TG_FLOOD_SLEEP_THRESHOLD,
