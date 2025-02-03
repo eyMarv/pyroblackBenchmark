@@ -3,28 +3,13 @@
   "layer": 198,
   "file_size": 2097152000,
   "download": {
-    "start_time": 1738437714.64425,
-    "end_time": 1738437935.901206,
-    "time_taken": 221
+    "start_time": 1738573126.184642,
+    "end_time": 1738573740.476637,
+    "time_taken": 614
   },
   "upload": {
-    "start_time": 1738437935.901236,
-    "end_time": 1738438062.901016,
-    "time_taken": 126
-  }
-}
-{
-  "version": "2.2.5-TL-198",
-  "layer": 198,
-  "file_size": 2097152000,
-  "download": {
-    "start_time": 1738478762.217534,
-    "end_time": 1738479105.30943,
-    "time_taken": 343
-  },
-  "upload": {
-    "start_time": 1738479105.309437,
-    "end_time": 1738479248.084557,
-    "time_taken": 142
+    "start_time": 1738573740.476645,
+    "end_time": 1738573991.750417,
+    "time_taken": 251
   }
 }
