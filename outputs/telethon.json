@@ -1,31 +1,15 @@
-
 {
   "version": "1.38.1",
   "layer": 198,
   "file_size": 2097152000,
   "download": {
-    "start_time": 1738466521.858799,
-    "end_time": 1738466800.140703,
-    "time_taken": 278
+    "start_time": 1738573123.161294,
+    "end_time": 1738574512.092126,
+    "time_taken": 1388
   },
   "upload": {
-    "start_time": 1738466800.140711,
-    "end_time": 1738467307.048496,
-    "time_taken": 278
-  }
-}
-{
-  "version": "1.38.1",
-  "layer": 198,
-  "file_size": 2097152000,
-  "download": {
-    "start_time": 1738477453.15594,
-    "end_time": 1738478229.849054,
-    "time_taken": 776
-  },
-  "upload": {
-    "start_time": 1738478229.849061,
-    "end_time": 1738478674.404284,
-    "time_taken": 776
+    "start_time": 1738574512.092135,
+    "end_time": 1738575253.973305,
+    "time_taken": 1388
   }
 }
