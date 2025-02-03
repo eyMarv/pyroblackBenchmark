@@ -3,43 +3,13 @@
   "layer": 158,
   "file_size": 2097152000,
   "download": {
-    "start_time": 1738441797.995862,
-    "end_time": 1738442139.352742,
-    "time_taken": 341
+    "start_time": 1738573107.802501,
+    "end_time": 1738573586.960823,
+    "time_taken": 479
   },
   "upload": {
-    "start_time": 1738442139.35275,
-    "end_time": 1738442715.543726,
-    "time_taken": 576
-  }
-}
-{
-  "version": "2.0.106",
-  "layer": 158,
-  "file_size": 2097152000,
-  "download": {
-    "start_time": 1738477454.518189,
-    "end_time": 1738477804.756223,
-    "time_taken": 350
-  },
-  "upload": {
-    "start_time": 1738477804.75623,
-    "end_time": 1738478233.036321,
-    "time_taken": 428
-  }
-}
-{
-  "version": "2.0.106",
-  "layer": 158,
-  "file_size": 2097152000,
-  "download": {
-    "start_time": 1738481161.537458,
-    "end_time": 1738481908.976123,
-    "time_taken": 747
-  },
-  "upload": {
-    "start_time": 1738481908.976129,
-    "end_time": 1738482492.045305,
-    "time_taken": 583
+    "start_time": 1738573586.96083,
+    "end_time": 1738574008.694717,
+    "time_taken": 421
   }
 }
