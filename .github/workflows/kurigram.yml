@@ -30,7 +30,7 @@ jobs:
           pip install --force-reinstall https://github.com/KurimuzonAkuma/pyrogram/archive/857ec0d.zip TgCrypto==1.2.5 > /dev/null 2>&1
           P=$(python scripts/python/p2.py)
           pip uninstall -y kurigram tgcrypto > /dev/null 2>&1
-          echo "${P}" >> outputs/kurigram.json
+          echo "${P}" > outputs/kurigram.json
 
       - name: Commit and push changes
         run: |

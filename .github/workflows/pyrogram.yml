@@ -30,7 +30,7 @@ jobs:
           pip install --force-reinstall Pyrogram==2.0.106 TgCrypto==1.2.5 > /dev/null 2>&1
           P=$(python scripts/python/p2.py)
           pip uninstall -y pyrogram tgcrypto > /dev/null 2>&1
-          echo "${P}" >> outputs/pyrogram.json
+          echo "${P}" > outputs/pyrogram.json
 
       - name: Commit and push changes
         run: |

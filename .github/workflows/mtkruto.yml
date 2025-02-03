@@ -31,7 +31,7 @@ jobs:
           MK=$(deno -A m4.ts)
           cd ../../
           # TODO:
-          echo "${MK}" >> outputs/mtkruto.json
+          echo "${MK}" > outputs/mtkruto.json
 
       - name: Commit and push changes
         run: |

@@ -30,7 +30,7 @@ jobs:
           pip install --force-reinstall https://github.com/TelegramPlayGround/Pyrogram/archive/26c2d73.zip https://github.com/TelegramPlayGround/pyrogram-tgcrypto/archive/10142c3.zip > /dev/null 2>&1
           P=$(python scripts/python/p2.py)
           pip uninstall -y pyrotgfork pytgcrypto > /dev/null 2>&1
-          echo "${P}" >> outputs/pyrotgfork.json
+          echo "${P}" > outputs/pyrotgfork.json
 
       - name: Commit and push changes
         run: |

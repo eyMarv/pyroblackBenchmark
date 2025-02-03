@@ -31,7 +31,7 @@ jobs:
           sed -i s/pyrogram/hydrogram/g scripts/python/p2.py
           P=$(python scripts/python/p2.py)
           pip uninstall -y hydrogram tgcrypto > /dev/null 2>&1
-          echo "${P}" >> outputs/hydrogram.json
+          echo "${P}" > outputs/hydrogram.json
 
       - name: Commit and push changes
         run: |
