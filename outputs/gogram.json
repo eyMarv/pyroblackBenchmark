@@ -4,16 +4,16 @@
   "download": {
     "peak_speed": "6.00 MB/s",
     "avg_speed": "5.00 MB/s",
-    "time_taken": 365,
-    "start_time": 1739001642,
-    "end_time": 1739002007
+    "time_taken": 367,
+    "start_time": 1739004875,
+    "end_time": 1739005242
   },
   "upload": {
-    "peak_speed": "17.00 MB/s",
-    "avg_speed": "17.00 MB/s",
-    "time_taken": 116,
-    "start_time": 1739002007,
-    "end_time": 1739002123
+    "peak_speed": "16.00 MB/s",
+    "avg_speed": "16.00 MB/s",
+    "time_taken": 119,
+    "start_time": 1739005242,
+    "end_time": 1739005361
   },
   "file_size": 2097152000
 }
