@@ -91,7 +91,7 @@ async function fetchClientData() {
     try {
         const results = await Promise.all(
             libs.map(lib =>
-                fetch(`https://github.com/TelegramPlayGround/bmt/raw/master/outputs/${lib.name}.json`)
+                fetch(`https://raw.githubusercontent.com/TelegramPlayGround/bmt/master/outputs/${lib.name}.json`)
                     .then(res => res.json())
                     .then(data => ({ lib, data }))
             )
