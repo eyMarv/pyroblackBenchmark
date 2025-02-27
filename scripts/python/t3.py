@@ -3,7 +3,7 @@ import logging
 import os
 import shutil
 from datetime import datetime
-from json import dumps
+from json import dump
 from pytdbot import VERSION, Client, types
 
 
