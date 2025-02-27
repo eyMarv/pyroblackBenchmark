@@ -31,6 +31,10 @@ const libs = [
         name: "pyroblack",
         repo: "https://github.com/eyMarv/pyroblack/",
     },
+    {
+        name: "pytdbot",
+        repo: "https://github.com/pytdbot/client",
+    },
 ];
 
 function formatSpeed(bytes, seconds) {
