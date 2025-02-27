@@ -1,19 +1,15 @@
-Welcome to Pytdbot (v0.9.0). Copyright (c) 2022-2025 Pytdbot, AYMENJD
-Pytdbot is free software and comes with ABSOLUTELY NO WARRANTY. Licensed under the terms of MIT License.
-
-
 {
   "version": "0.9.0",
   "layer": "1.8.45",
   "file_size": 2097152000,
   "download": {
-    "start_time": 1740677430.944779,
-    "end_time": 1740677734.30909,
-    "time_taken": 303
+    "start_time": 1740678956.786305,
+    "end_time": 1740679215.340324,
+    "time_taken": 258
   },
   "upload": {
-    "start_time": 1740677734.309098,
-    "end_time": 1740677853.085937,
-    "time_taken": 118
+    "start_time": 1740679215.340332,
+    "end_time": 1740679335.752563,
+    "time_taken": 120
   }
 }
