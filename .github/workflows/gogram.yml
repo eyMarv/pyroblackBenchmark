@@ -28,7 +28,7 @@ jobs:
           echo "Beginning GoGram test"
           mkdir -p outputs
           cd scripts/golang/
-          go mod tidy && go run . && rm go.sum
+          go mod tidy && go get github.com/amarnathcjd/gogram@f7bb0ec && go run . && rm go.sum
           cd ../../
 
       - name: Commit and push changes

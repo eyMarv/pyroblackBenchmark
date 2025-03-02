@@ -53,6 +53,11 @@ function createClientCard(data, lib, index, position) {
     const uploadSpeed = formatSpeed(data.file_size, data.upload.time_taken);
     const positionBadge = `<div class="position-badge">#${position}</div>`;
 
+    let clientMeta = `<div class="client-meta">v${data.version.replace("v", "")} • Layer ${data.layer}</div>`;
+    if (lib.name === "pytdbot") {
+        clientMeta = `<div class="client-meta">v${data.version} • TDLib ${data.layer}</div>`;
+    }
+
     return `
 <div class="card" style="animation-delay: ${index * 0.1}s">
 ${positionBadge}
@@ -65,7 +70,7 @@ ${positionBadge}
       <i class="ti ti-brand-github"></i>
     </a>
   </div>
-  <div class="client-meta">v${data.version.replace("v", "")} • Layer ${data.layer}</div>
+  ${clientMeta}
 </div>
 </div>
 <div class="stats">
