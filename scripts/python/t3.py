@@ -47,6 +47,7 @@ async def main():
         #     "message_unload_delay": 60,
         #     "disable_persistent_network_statistics": True,
         # },
+        td_verbosity=3,  # TDLib verbosity level
     )
     await client.start()
     internalLinkInfo = await client.invoke({
