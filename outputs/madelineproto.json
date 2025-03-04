@@ -1,0 +1,16 @@
+{
+    "version": "8.4.1",
+    "layer": 195,
+    "file_name": "DC1.zip",
+    "file_size": 2097152000,
+    "download": {
+        "start_time": 1741098593.383087,
+        "end_time": 1741098593.383218,
+        "time_taken": 0.00013113021850585938
+    },
+    "upload": {
+        "start_time": 1741098593.383237,
+        "end_time": 1741098930.3328,
+        "time_taken": 336.9495630264282
+    }
+}
