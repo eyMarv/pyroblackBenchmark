@@ -74,7 +74,6 @@ function getMessageDetails($messageLink) {
 }
 
 function downloadFile($api, $chatId, $messageId) {
-    $startTime = microtime(true);
     $messages = $api->channels->getMessages([
         'channel' => $chatId,
         'id' => [$messageId]
@@ -85,14 +84,30 @@ function downloadFile($api, $chatId, $messageId) {
         throw new Exception("No document found in the message.");
     }
 
-    $fileId = $message['media']['document']['id'];
-    $filePath = $api->downloadToFile($fileId, basename($message['media']['document']['attributes'][0]['file_name']));
+    $file = $message['media'];
+    $startTime = microtime(true);
+    $file = new \danog\MadelineProto\FileCallback(
+        $file,
+        static function ($progress, $speed, $time) use ($sent): void {
+            static $prev = 0;
+            $now = time();
+            if ($now - $prev < 10 && $progress < 100) {
+                return;
+            }
+
+            $prev = $now;
+            try {
+                echo "Upload progress: $progress%\nSpeed: $speed mbps\nTime elapsed since start: $time";
+            } catch (RPCErrorException $e) {
+            }
+        },
+    );
     $endTime = microtime(true);
 
     $downloadTime = $endTime - $startTime;
     echo "Download completed in $downloadTime seconds.\n";
 
-    return $filePath;
+    return $file;
 }
 
 function uploadFile($api, $chatId, $filePath) {
@@ -103,13 +118,12 @@ function uploadFile($api, $chatId, $filePath) {
             '_' => 'inputMediaUploadedDocument',
             'file' => $filePath,
             'attributes' => [
-                ['_' => 'documentAttributeFilename', 'file_name' => basename($filePath)]
+                ['_' => 'documentAttributeFilename', 'file_name' => "MadeLineProto.zip"]
             ]
         ],
-        'message' => 'Here is the file you requested.'
+        'message' => 'Powered by @MadelineProto!'
     ]);
     $endTime = microtime(true);
-
     $uploadTime = $endTime - $startTime;
     echo "Upload completed in $uploadTime seconds.\n";
 }
