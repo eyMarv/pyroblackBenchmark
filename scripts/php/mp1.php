@@ -47,10 +47,10 @@ $messageLink = getenv("TG_MESSAGE_LINK");
 
 $settings = new \danog\MadelineProto\Settings;
 $settings->getLogger()->setLevel(\danog\MadelineProto\Logger::LEVEL_ULTRA_VERBOSE);
-$settings->getConnection()
-    ->setMinMediaSocketCount(20)
-    ->setMaxMediaSocketCount(1000);
-// IMPORTANT: for security reasons, upload by URL will still be allowed
+// $settings->getConnection()
+//     ->setMinMediaSocketCount(20)
+//     ->setMaxMediaSocketCount(1000);
+// // IMPORTANT: for security reasons, upload by URL will still be allowed
 $settings->getFiles()->setAllowAutomaticUpload(true);
 
 $settings->getAppInfo()
