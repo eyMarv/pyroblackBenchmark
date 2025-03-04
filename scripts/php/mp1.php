@@ -107,7 +107,12 @@ function downloadFile($api, $chatId, $messageId) {
     $downloadTime = $endTime - $startTime;
     echo "Download completed in $downloadTime seconds.\n";
 
-    return $file;
+    return [
+        "file" => $file,
+        "start_time" => $startTime,
+        "end_time" => $endTime,
+        "time_taken" => $downloadTime,
+    ];
 }
 
 function uploadFile($api, $chatId, $filePath) {
@@ -126,10 +131,27 @@ function uploadFile($api, $chatId, $filePath) {
     $endTime = microtime(true);
     $uploadTime = $endTime - $startTime;
     echo "Upload completed in $uploadTime seconds.\n";
+    return [
+        "start_time" => $startTime,
+        "end_time" => $endTime,
+        "time_taken" => $uploadTime,
+    ];
 }
 
 list($chatId, $messageId) = getMessageDetails($messageLink);
-$filePath = downloadFile($api, $chatId, $messageId);
-uploadFile($api, $chatId, $filePath);
+$fileMI = downloadFile($api, $chatId, $messageId);
+$filePath = $fileMI["file"];
+unset($fileMI["file"]);
+$uploadMI = uploadFile($api, $chatId, $filePath);
 
+$j = [
+    "version" => \danog\MadelineProto\API::RELEASE,
+    "layer" => $settings->getSchema()->getLayer(),
+    "file_name" => "DC1.zip",
+    // TODO: IDekNow, how to get these values from actual media object.?
+    "file_size" => 2097152000,
+    "download" => $fileMI,
+    "upload" => $uploadMI
+];
+file_put_contents("../../outputs/madelineproto.json", json_encode($j, JSON_PRETTY_PRINT));
 ?>
