@@ -61,7 +61,7 @@ $api = new \danog\MadelineProto\API('session.madeline', $settings);
 $api->botLogin($TG_BOT_TOKEN);
 $api->start();
 
-function getMessageDetails($api, $messageLink) {
+function getMessageDetails($messageLink) {
     // Extract chat ID and message ID from the link
     preg_match('/t\.me\/(\d+)\/(\d+)/', $messageLink, $matches);
     if (count($matches) !== 3) {
