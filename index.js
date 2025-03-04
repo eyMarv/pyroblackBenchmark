@@ -63,6 +63,8 @@ function formatSpeed(bytes, seconds, si = false, dp = 2) {
         return (bytes / seconds).toFixed(dp) + " B/s";
     }
 
+    bytes = bytes / seconds;
+
     const units = si
         ? ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']
         : ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
@@ -76,7 +78,7 @@ function formatSpeed(bytes, seconds, si = false, dp = 2) {
         Math.round(Math.abs(bytes) * r) / r >= thresh && u < units.length - 1
     );
 
-    return "" + (bytes / seconds).toFixed(dp) + " " + units[u] + "/s";
+    return "" + (bytes).toFixed(dp) + " " + units[u] + "/s";
 }
 
 function calculateScore(data) {
