@@ -88,7 +88,7 @@ function downloadFile($api, $chatId, $messageId) {
     $startTime = microtime(true);
     $file = new \danog\MadelineProto\FileCallback(
         $file,
-        static function ($progress, $speed, $time) use ($sent): void {
+        static function ($progress, $speed, $time) use ($chatId, $messageId): void {
             static $prev = 0;
             $now = time();
             if ($now - $prev < 10 && $progress < 100) {
