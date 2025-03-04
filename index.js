@@ -1,7 +1,7 @@
 const libs = [
     {
         name: "telethon",
-        repo: "https://github.com/LonamiWebs/Telethon"
+        repo: "https://github.com/LonamiWebs/Telethon",
     },
     {
         name: "pyrogram",
@@ -34,6 +34,10 @@ const libs = [
     {
         name: "pytdbot",
         repo: "https://github.com/pytdbot/client",
+    },
+    {
+        name: "madelineproto",
+        repo: "https://github.com/danog/MadelineProto",
     },
 ];
 
