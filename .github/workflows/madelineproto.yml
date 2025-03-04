@@ -11,7 +11,15 @@ jobs:
       - name: Checkout repository contents
         uses: actions/checkout@v4
 
-      - name: Run script
+      - name: Run the build process with Docker
+        uses: addnab/docker-run-action@v3
+        with:
+          image: hub.madelineproto.xyz/danog/madelineproto:latest
+          options: -v ${{ github.workspace }}:/app
+          run: |
+            echo "Beginning MadeLineProto test"
+            mkdir -p outputs
+            php /app/scripts/php/mp1.php
         env:
           TG_API_ID: ${{ secrets.TG_API_ID }}
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
@@ -19,10 +27,6 @@ jobs:
           TG_SESSION: ${{ secrets.TG_SESSION }}
           TG_FLOOD_SLEEP_THRESHOLD: ${{ secrets.TG_FLOOD_SLEEP_THRESHOLD }}
           TG_MESSAGE_LINK: ${{ secrets.TG_MESSAGE_LINK }}
-        run: |
-          echo "Beginning MadeLineProto test"
-          mkdir -p outputs
-          docker run -v $PWD:/app --rm -it hub.madelineproto.xyz/danog/madelineproto:latest php /app/scripts/php/mp1.php
 
       - name: Commit and push changes
         run: |
