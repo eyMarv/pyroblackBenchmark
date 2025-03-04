@@ -79,7 +79,7 @@ function getMessageDetails($messageLink) {
         throw new Exception("Invalid message link format.");
     }
     $chatId = "@" . $matches[1];
-    $messageId = $matches[2];
+    $messageId = (int) $matches[2];
 
     return [$chatId, $messageId];
 }
