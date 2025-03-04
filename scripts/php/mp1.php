@@ -36,7 +36,7 @@ if (file_exists(__DIR__ . "/vendor/autoload.php")) {
  * required environment variables
  */
 
-$TG_API_ID = getenv("TG_API_ID");
+$TG_API_ID = (int) getenv("TG_API_ID");
 $TG_API_HASH = getenv("TG_API_HASH");
 $TG_BOT_TOKEN = getenv("TG_BOT_TOKEN");
 $messageLink = getenv("TG_MESSAGE_LINK");
