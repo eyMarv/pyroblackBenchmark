@@ -15,7 +15,14 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: hub.madelineproto.xyz/danog/madelineproto:latest
-          options: -v ${{ github.workspace }}:/app
+          options: >-
+            -v ${{ github.workspace }}:/app
+            -e TG_API_ID
+            -e TG_API_HASH
+            -e TG_BOT_TOKEN
+            -e TG_SESSION
+            -e TG_FLOOD_SLEEP_THRESHOLD
+            -e TG_MESSAGE_LINK
           run: |
             echo "Beginning MadeLineProto test"
             mkdir -p outputs
