@@ -16,7 +16,7 @@
  * @license   https://opensource.org/licenses/AGPL-3.0 AGPLv3
  * @link https://docs.madelineproto.xyz MadelineProto documentation
  */
-<?php
+
 /*
  * Various ways to load @MadeLineProto
  */
