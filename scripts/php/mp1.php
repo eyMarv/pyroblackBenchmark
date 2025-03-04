@@ -63,11 +63,11 @@ $api->start();
 
 function getMessageDetails($messageLink) {
     // Extract chat ID and message ID from the link
-    preg_match('/t\.me\/(\d+)\/(\d+)/', $messageLink, $matches);
+    preg_match('/t\.me\/(\w+)\/(\d+)/', $messageLink, $matches);
     if (count($matches) !== 3) {
         throw new Exception("Invalid message link format.");
     }
-    $chatId = $matches[1];
+    $chatId = "@" . $matches[1];
     $messageId = $matches[2];
 
     return [$chatId, $messageId];
