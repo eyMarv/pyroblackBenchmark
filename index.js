@@ -1,43 +1,19 @@
 const libs = [
     {
-        name: "telethon",
-        repo: "https://github.com/LonamiWebs/Telethon",
-    },
-    {
-        name: "pyrogram",
-        repo: "https://github.com/pyrogram/pyrogram",
-    },
-    {
-        name: "gogram",
-        repo: "https://github.com/amarnathcjd/gogram",
-    },
-    {
-        name: "hydrogram",
-        repo: "https://github.com/hydrogram/hydrogram",
-    },
-    {
-        name: "pyrotgfork",
-        repo: "https://github.com/TelegramPlayGround/pyrogram",
-    },
-    {
-        name: "kurigram",
-        repo: "https://github.com/KurimuzonAkuma/pyrogram",
-    },
-    {
-        name: "pyrofork",
-        repo: "https://github.com/Mayuri-Chan/pyrofork",
-    },
-    {
-        name: "pyroblack",
+        name: "pyroblack-2.3.84",
         repo: "https://github.com/eyMarv/pyroblack/",
     },
     {
-        name: "pytdbot",
-        repo: "https://github.com/pytdbot/client",
+        name: "pyroblack-2.3.86",
+        repo: "https://github.com/eyMarv/pyroblack/",
     },
     {
-        name: "madelineproto",
-        repo: "https://github.com/danog/MadelineProto",
+        name: "pyroblack-2.6.0",
+        repo: "https://github.com/eyMarv/pyroblack/",
+    },
+    {
+        name: "pyroblack-2.6.0-boost",
+        repo: "https://github.com/eyMarv/pyroblack/",
     },
 ];
 
@@ -139,7 +115,7 @@ async function fetchClientData() {
     try {
         const results = await Promise.all(
             libs.map(lib =>
-                fetch(`https://raw.githubusercontent.com/TelegramPlayGround/bmt/master/outputs/${lib.name}.json`)
+                fetch(`https://raw.githubusercontent.com/eyMarv/pyroblackBenchmark/master/outputs/${lib.name}.json`)
                     .then(res => res.json())
                     .then(data => ({ lib, data }))
             )
