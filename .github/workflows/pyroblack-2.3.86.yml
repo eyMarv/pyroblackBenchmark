@@ -30,7 +30,7 @@ jobs:
           pip install --force-reinstall pyroblack==2.3.86 tgcrypto-pyroblack > /dev/null 2>&1
           P=$(python scripts/python/p2.py)
           pip uninstall -y pyroblack TgCrypto-pyroblack > /dev/null 2>&1
-          echo "${P}" > outputs/pyroblack.json
+          echo "${P}" > outputs/pyroblack-2.3.86.json
 
       - name: Commit and push changes
         run: |
