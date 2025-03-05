@@ -37,8 +37,6 @@ async def main():
         no_updates=True,
         bot_token=TG_BOT_TOKEN
     ) as app:
-        app.upload_boost = True
-
         d["version"] = __version__
         d["layer"] = layer
 
