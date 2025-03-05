@@ -42,7 +42,7 @@ async def main():
         d["version"] = __version__
         d["layer"] = layer
 
-        _, _, _, chat_id, s_message_id = TG_MESSAGE_LINK.split("/")
+        chat_id, s_message_id = TG_MESSAGE_LINK.split("/")
 
         t1 = datetime.now()
         message = await app.get_messages(chat_id=chat_id, message_ids=int(s_message_id))
