@@ -34,7 +34,7 @@ jobs:
         run: |
           echo "Beginning Pyrogram test"
           mkdir -p outputs
-          pip install --force-reinstall pyroblack==2.3.84 tgcrypto-pyroblack > /dev/null 2>&1
+          pip install --force-reinstall uvloop pyroblack==2.3.84 tgcrypto-pyroblack > /dev/null 2>&1
           P=$(python scripts/python/p2.py)
           pip uninstall -y pyroblack TgCrypto-pyroblack > /dev/null 2>&1
           echo "${P}" > outputs/pyroblack-2.3.84.json
