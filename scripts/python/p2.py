@@ -94,7 +94,7 @@ async def main():
         t2 = datetime.now()
         filename = await message.download()
         t3 = datetime.now()
-        d["download"]["time_taken"] = (int(d["download"]["time_taken"]) + int((t3 - t2).seconds))) / 2
+        d["download"]["time_taken"] = (int(d["download"]["time_taken"]) + int((t3 - t2).seconds)) / 2
         t4 = datetime.now()
         await app.send_document(
             chat_id=message.chat.id,
@@ -103,7 +103,7 @@ async def main():
             reply_to_message_id=message.id
         )
         t5 = datetime.now()
-        d["upload"]["time_taken"] = (int(d["download"]["time_taken"]) + int((t5 - t4).seconds))) / 2
+        d["upload"]["time_taken"] = (int(d["download"]["time_taken"]) + int((t5 - t4).seconds)) / 2
         os.remove(filename)
     print(dumps(d, indent=2))
 
