@@ -21,7 +21,7 @@ jobs:
           TG_API_ID: ${{ secrets.TG_API_ID }}
           TG_API_HASH: ${{ secrets.TG_API_HASH }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN3 }}
-          TG_SESSION: ${{ secrets.TG_SESSION }}
+          TG_SESSION: ${{ secrets.TG_SESSION3 }}
           TG_FLOOD_SLEEP_THRESHOLD: ${{ secrets.TG_FLOOD_SLEEP_THRESHOLD }}
           TG_MESSAGE_LINK: ${{ secrets.TG_MESSAGE_LINK }}
         run: |
