@@ -1,4 +1,4 @@
-name: PyroBlack v2.6.0 (t.me/tgLibs) Benchmark Testing Tool
+name: PyroBlack v2.6.6 (t.me/tgLibs) Benchmark Testing Tool
 
 on:
   workflow_dispatch: {}
@@ -34,10 +34,10 @@ jobs:
         run: |
           echo "Beginning Pyrogram test"
           mkdir -p outputs
-          pip install --force-reinstall uvloop pyroblack==2.6.0 tgcrypto-pyroblack > /dev/null 2>&1
+          pip install --force-reinstall uvloop pyroblack==2.6.6 tgcrypto-pyroblack > /dev/null 2>&1
           P=$(python scripts/python/p2-noboost.py)
           pip uninstall -y pyroblack TgCrypto-pyroblack > /dev/null 2>&1
-          echo "${P}" > outputs/pyroblack-2.6.0.json
+          echo "${P}" > outputs/pyroblack-2.6.6.json
 
       - name: Commit and push changes
         run: |
