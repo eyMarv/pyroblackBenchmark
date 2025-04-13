@@ -8,11 +8,11 @@ const libs = [
         repo: "https://github.com/eyMarv/pyroblack/",
     },
     {
-        name: "pyroblack-2.6.6",
+        name: "pyroblack-latest",
         repo: "https://github.com/eyMarv/pyroblack/",
     },
     {
-        name: "pyroblack-2.6.6-boost",
+        name: "pyroblack-latest-boost",
         repo: "https://github.com/eyMarv/pyroblack/",
     },
 ];
